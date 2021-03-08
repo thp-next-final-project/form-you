@@ -1,8 +1,10 @@
+import { url } from 'inspector';
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useFetch } from './hooks/useFetch';
+import './App.sass';
 
-function App() {
+const App = (): JSX.Element => {
+  const { isLoading , data} = useFetch(url);
   return (
     <div className="App">
       <header className="App-header">
