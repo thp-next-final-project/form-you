@@ -25,6 +25,9 @@ const Register = () => {
 
 		const createUser = {
 			user: {
+				firstname: e.target.firstname.value,
+				lastname: e.target.lastname.value,
+				role: e.target.role.value,
 				email: e.target.email.value,
 				password: e.target.password.value,
 			}
@@ -40,10 +43,20 @@ const Register = () => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [data]);	
 
-	return(
+	return (
 			<section>
 					<h2>Register</h2>
 					<form onSubmit={handleSubmit}>
+						<label >FirstName</label>
+						<input type="text" name="firstname" required/>
+						<label >LastName</label>
+						<input type="text" name="lastname" required/>
+						<label >Choose a role:</label>
+						<select name="role">
+							<option value="user">User</option>
+							<option value="professor">Professor</option>
+							<option value="admin">Admin</option>
+						</select>
 						<label >Email</label>
 						<input type="email" name="email" required/>
 						<label >Password</label>

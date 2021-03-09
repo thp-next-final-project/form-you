@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Cookies from 'js-cookie';
-import { API_URL, COOKIE_NAME } from '../config';
+import { API_URL, COOKIE_NAME } from '../config/config';
 // import { Headers } from "../types/models";
 
 export const useFetch = ( withAuth = false ) => {

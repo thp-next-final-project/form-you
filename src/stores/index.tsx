@@ -1,6 +1,6 @@
 import { createStore } from 'redux';
 import Cookies from 'js-cookie';
-import { COOKIE_NAME } from '../config';
+import { COOKIE_NAME } from '../config/config';
 import { LOGIN, LOGOUT } from './actions'
 import { CurrentUser, Payload } from '../types/models';
 
