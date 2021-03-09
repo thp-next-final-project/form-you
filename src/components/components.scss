@@ -1,0 +1,21 @@
+$main-blue : #49C6E5;
+$main-green : #70AE6E;
+$main-red : #FF5A1F;
+$grey : #6D696A;
+$white : #FFFBFA;
+$black : #090C02;
+
+nav{
+    display: block;
+    width: 100%;
+    height: 20vh;
+    background-color: $main-blue;
+    display: flex;
+    align-items: center;
+    .user-part{
+        width: 70%;
+    }
+    .auth-part{
+        width: 30%;
+    }
+}
