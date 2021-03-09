@@ -6,7 +6,7 @@ export type User = {
   role: UserRole?
 }
 
-export type CurrentUser = {
+export interface CurrentUser {
   id: number?,
   email: string?,
   role: UserRole?,
@@ -18,13 +18,15 @@ export type Payload = {
   id, 
   email, 
   isLogged,
-  data
+  data,
+  token
 }
 
 export type Headers = {
   'Content-Type': 'application/json',
   Authorization: string?
 }
+
 export type Params = {
   method: 'get' | 'post' | 'delete',
   headers: Headers,

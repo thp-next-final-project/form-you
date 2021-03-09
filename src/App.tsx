@@ -7,7 +7,7 @@ import Home from './pages/home';
 const App = (): JSX.Element => {
   return (
     <Provider store={Reducer}>
-      <Home></Home>
+      <Home/>
     </Provider>
   );
 }

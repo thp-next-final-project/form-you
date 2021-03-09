@@ -1,8 +1,9 @@
 import { useSelector, useDispatch } from "react-redux"
+// import { NavLink } from "react-router-dom";
 import { LOGOUT } from "../../stores/actions";
 
 const Header = () => {
-  const user = useSelector((state) => state);
+  const user:any = useSelector((state) => state);
   const dispatch = useDispatch();
 
   const handleLogout = () => {
@@ -17,12 +18,12 @@ const Header = () => {
       <div>
         { !user.isLogged &&
           <>
-            <NavLink to="/login">Login</NavLink>
-            <NavLink to="/signup">Subscribe</NavLink>
+            <div >Login</div>
+            <div>Subscribe</div>
           </>
         }
-        { !user.isLogged &&
-          <input type="button" onClick={handleLogout}>Log Out</input>
+        { user.isLogged &&
+          <button onClick={handleLogout}>Log Out</button>
         }
       </div>
     </header>

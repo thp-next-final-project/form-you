@@ -1,6 +1,6 @@
 import { createStore } from 'redux';
 import Cookies from 'js-cookie';
-import { COOKIE_NAME } from '../../config';
+import { COOKIE_NAME } from '../config';
 import { LOGIN, LOGOUT } from './actions'
 import { CurrentUser, Payload } from '../types/models';
 
@@ -13,22 +13,22 @@ const initialUserData:CurrentUser = {
   isLogged: false
 }
 
-const userReducer = (state = initialUserData, payload:Payload) => {
-  const { type, data } = payload;
+const userReducer = (state = initialUserData, payload:Payload):CurrentUser => {
+  const { type, data, token } = payload;
 
   switch (type) {
     case LOGIN:
-      if (!data || !data.user) {
+      if (!data || !data.id) {
         throw new Error('Data for login must not be empty.');
       }
-      if (!data.jwt) {
-        throw new Error('Missing JWT.');
+      if (!token) {
+        throw new Error('Missing token.');
       }
-      Cookies.set(COOKIE_NAME, data.jwt);
+      Cookies.set(COOKIE_NAME, token);
       return {
-        id: data.user.id,
-        role: data.user.role,
-        email: data.user.email,
+        id: parseInt(data.id),
+        role: "user",
+        email: data.attributes.email,
         isLogged: true
       };
     case LOGOUT:

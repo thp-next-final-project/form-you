@@ -1,19 +1,20 @@
 import { useState } from "react";
 import Cookies from 'js-cookie';
-import { API_URL } from '../../config';
-import { Headers } from "../types/models";
+import { API_URL, COOKIE_NAME } from '../config';
+// import { Headers } from "../types/models";
 
 export const useFetch = ( withAuth = false ) => {
   const [ isLoading, setIsLoading ] = useState(false);
-  const [ data, setData ] = useState([]);
+  const [ data, setData ] = useState(null);
+  const [ token, setToken ] = useState(Cookies.get(COOKIE_NAME));
   const [ errors, setErrors] = useState(null);
 
-  const headers:Headers = { 
+  const headers:any = { 
     'Content-Type': 'application/json',
-    'Authorization': null
+    Authorization: null
    };
   if (withAuth) {
-    headers.Authorization = `Bearer ${Cookies.get('auth-token')}`
+    headers.Authorization = token;
   }
   const get = (path:string) => {
     setIsLoading(true);
@@ -37,20 +38,20 @@ export const useFetch = ( withAuth = false ) => {
     setErrors(null);
     fetch( API_URL + path,
       {
-        method: 'get',
+        method: 'post',
         headers,
         body: JSON.stringify(postData)
       })
-				.then((response) => response.json())
-				.then ((response) => {
-          if (response.status !== 200) {
-            throw new Error(response.message[0].message[0].message || 'unkown error');
-          }
-					console.log(response)
-          if (path === '/api/login' && response.status === 200) {
-            Cookies.set('token', response.headers.get('Authorization').split(' ')[1]);
-          }          
-					setData(response)
+				.then((response) => {
+          console.log(response.headers.get('Authorization'));
+          if ((path === '/api/login' || path === '/api/signup')  && response.status === 200) {
+            setToken(response.headers.get('Authorization') || "");
+          } 
+          return response.json()
+        })
+				.then((response) => {          
+					console.log(response.data)         
+					setData(response.data)
 				})
         .catch(error => setErrors(error))
         .finally(() => setIsLoading(false))
@@ -60,6 +61,7 @@ export const useFetch = ( withAuth = false ) => {
     isLoading,
     errors,
     data,
+    token,
     get,
     post
   };
