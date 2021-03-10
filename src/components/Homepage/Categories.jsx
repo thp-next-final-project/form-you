@@ -9,7 +9,7 @@ const Categories = () => {
 
     const fetchCategories = (searchValue) => {
                 
-        fetch(`http://localhost:3001/categories`)
+        fetch(`https://form-you-api.herokuapp.com/categories`)
         .then(response => response.json())
         .then(data => {
             setCategories(data);    
