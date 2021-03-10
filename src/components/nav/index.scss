@@ -1,0 +1,14 @@
+nav {
+  display: block;
+  width: 100%;
+  height: 20vh;
+  background-color: $main-blue;
+  display: flex;
+  align-items: center;
+  .user-part{
+      width: 70%;
+  }
+  .auth-part{
+      width: 30%;
+  }
+}
