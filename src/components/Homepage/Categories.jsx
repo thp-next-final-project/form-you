@@ -30,7 +30,8 @@ const Categories = () => {
                 <li>
                     <CategoriesMenu
                     title={categorie.title}
-                    id={categorie.id}          
+                    id={categorie.id} 
+                    key={categorie.id}         
                     />
                 </li>
             

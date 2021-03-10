@@ -27,7 +27,8 @@ const Formations = () => {
           <FormationCard
             title={formation.title}
             id={formation.id}
-            description={formation.description}            
+            description={formation.description}      
+            key={formation.id}               
           />        
       ))}
     </div>
