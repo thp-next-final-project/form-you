@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+body {
+    font-family: 'Muli', sans-serif;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+    margin: 0;
+}
+
+
+.card {
+	background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+	display: flex;
+	margin: 20px;
+	overflow: hidden;
+    width: 700px;
+    box-sizing: border-box;
+
+}
+
+.FormationTitle {
+	background-color: #2A265F;
+    color: #fff;
+    font-size: 25px;
+	padding: 30px;
+	width: 280px;
+}
+
+
+.FormationDescription {
+	padding: 30px;
+    width: 100%;
+    min-height: 100%;
+}
+
+.btnFormation {
+	background-color: #2A265F;
+	border: 0;
+	border-radius: 50px;
+	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+	color: #fff;
+	font-size: 16px;
+	padding: 12px 25px;
+    position: relative;
+    bottom: -15px; 
+    right: 10px;
+	letter-spacing: 1px;
+}
+
+.btnFormation:hover {    
+    opacity: 1;
+    background-color: rgb(42,38,95, 0.1);   
+    color: #2A265F; 
+    border : solid 1px #2A265F;
+}
+
+.FormationsTagsBtn {
+    color: #fff;
+    background-color: transparent;
+    border: white solid 1px;
+	border-radius: 50px;
+	display: inline-block;
+	font-size: 12px;
+	opacity: 0.6;
+    text-decoration: none;
+    margin: 5px;
+}
+
+
+.FormationsTagsBtn:hover {    
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.3);    
+}
+
+
+
+
+
+
+
+
+

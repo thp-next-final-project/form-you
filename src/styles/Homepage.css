@@ -1,0 +1,31 @@
+
+.HomepageGlobal {
+    display: flex;
+    margin: 0px;
+    width: 100%;
+    /* border: solid 1px red; */
+}
+
+.categoriesMenu {
+   width: 200px;
+}
+
+.banner{
+    background-color: rgb(42,38,95, 0.5);
+    padding: 20px;
+    height: 300px;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+.banner h2 {
+    font-size: 40px;
+}
+
+.banner p {
+    margin-top: 50px;
+    font-style: italic;
+}
+
+
