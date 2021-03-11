@@ -6,7 +6,7 @@ export type User = {
   role: UserRole?
 }
 
-export interface CurrentUser {
+export type CurrentUser = {
   id: number?,
   email: string?,
   role: UserRole?,
@@ -24,7 +24,7 @@ export type Payload = {
 
 export type Headers = {
   'Content-Type': 'application/json',
-  Authorization: string?
+  Authorization?: string
 }
 
 export type Params = {
