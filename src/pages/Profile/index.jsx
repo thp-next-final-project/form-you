@@ -13,7 +13,7 @@ export const Profile = () => {
 		if (!user.isLogged ) {
 			history.push('/');   
 		} else{
-            fetch(`http://localhost:3000/api/users/${user.id}`)
+            fetch(`http://form-you-api.herokuapp.com/api/users/${user.id}`)
             .then(response => response.json())
             .then(json => updateUserInfo(json))
 			.then(console.log(userInfos));

@@ -11,9 +11,9 @@ body {
 
 
 .card {
-	background-color: #fff;
+	background-color: white;
 	border-radius: 10px;
-	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+	box-shadow: 0  10px 10px rgba(0, 0, 0, 0.2);
 	display: flex;
 	margin: 20px;
 	overflow: hidden;
@@ -23,8 +23,8 @@ body {
 }
 
 .FormationTitle {
-	background-color: #2A265F;
-    color: #fff;
+	background-color: $primary-color;
+    color: $white;
     font-size: 25px;
 	padding: 30px;
 	width: 280px;
@@ -38,11 +38,11 @@ body {
 }
 
 .btnFormation {
-	background-color: #2A265F;
+	background-color: $primary-color;
 	border: 0;
 	border-radius: 50px;
 	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
-	color: #fff;
+	color: $white;
 	font-size: 16px;
 	padding: 12px 25px;
     position: relative;
@@ -53,15 +53,14 @@ body {
 
 .btnFormation:hover {    
     opacity: 1;
-    background-color: rgb(42,38,95, 0.1);   
-    color: #2A265F; 
-    border : solid 1px #2A265F;
+    background-color: $white;   
+    color: $primary-color; 
 }
 
 .FormationsTagsBtn {
-    color: #fff;
+    color: $white;
     background-color: transparent;
-    border: white solid 1px;
+    border: $white solid 1px;
 	border-radius: 50px;
 	display: inline-block;
 	font-size: 12px;

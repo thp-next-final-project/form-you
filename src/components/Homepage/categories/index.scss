@@ -9,15 +9,15 @@ li {
     line-height: 50px;
     height: 50px;
     text-align: center;
-    /* width: 50px; */
     cursor: pointer;
-    color: #2A265F;
+    color: $primary-color;
     transition: all 0.3s;
     position: relative;
   }
 
   li:hover{
-      color:rgba(42,38,95,0.5);
+      color: $primary-color;
+      opacity: 0.6;
   }
 
   li span {
@@ -37,8 +37,8 @@ li {
     border-bottom-width: 1px;
     border-top-style: solid;
     border-bottom-style: solid;
-    border-top-color: rgba(42,38,95, 0.5);
-    border-bottom-color: rgba(42,38,95,0.5);
+    border-top-color: $tercary-color;
+    border-bottom-color: $tercary-color;
     transform: scale(0.1, 1);
   }
   li:hover span {
