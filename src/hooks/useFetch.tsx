@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Cookies from 'js-cookie';
 import { API_URL, COOKIE_NAME } from '../config/config';
-// import { Headers } from "../types/models";
 
 export const useFetch = ( withAuth = false ) => {
   const [ isLoading, setIsLoading ] = useState(false);
@@ -9,11 +8,10 @@ export const useFetch = ( withAuth = false ) => {
   const [ token, setToken ] = useState(Cookies.get(COOKIE_NAME));
   const [ errors, setErrors] = useState(null);
 
-  const headers:any = { 
+  const headers:Record<string, string> = { 
     'Content-Type': 'application/json',
-    Authorization: null
    };
-  if (withAuth) {
+  if (withAuth && token) {
     headers.Authorization = token;
   }
   const get = (path:string) => {
