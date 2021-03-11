@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { LOGOUT } from "../../stores/actions";
+import Login from "../../pages/Login/index"
 
 export const NavBar = () => {
     const user:any = useSelector((state) => state);
@@ -19,9 +20,12 @@ export const NavBar = () => {
             <Link to="/sessions">
                 Mes sessions
             </Link>
-            <Link to="/profile">
-                Mon profil
-            </Link>
+            {
+                user.isLogged &&
+                <Link to="/profile">
+                    Mon profil
+                </Link>
+            }
         </div>
         { !user.isLogged &&
             <div className="auth-part">
