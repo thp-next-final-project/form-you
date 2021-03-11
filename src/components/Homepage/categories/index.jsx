@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import CategoriesMenu from './CategoriesMenu';
-import '../../styles/CategoriesMenu.css';
 
 
 const Categories = () => {
     const [categories, setCategories] = useState([]);
+
 
 
     const fetchCategories = (searchValue) => {
@@ -17,22 +16,17 @@ const Categories = () => {
       };
 
       useEffect(()=>{
-          fetchCategories()        
+          fetchCategories()                
       },[]);
 
-      
       return (
       
-        <div>
+       <div>
             <ul>
             {categories.map(categorie => (
             
-                <li>
-                    <CategoriesMenu
-                    title={categorie.title}
-                    id={categorie.id} 
-                    key={categorie.id}         
-                    />
+                <li>                    
+                    {categorie.title} 
                 </li>
             
             ))}
