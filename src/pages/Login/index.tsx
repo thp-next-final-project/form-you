@@ -23,11 +23,11 @@ const Login = () => {
 	
 	const handleLogin = (e:any) => {
 		e.preventDefault();
-		
+		console.log(e.target[0].value);
 		const logginUser = {
 			user: {
-				email: e.target.email.value,
-				password: e.target.password.value
+				email: e.target[0].value,
+				password: e.target[1].value
 			}
 		};
 
@@ -41,9 +41,9 @@ const Login = () => {
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [data]);
 
-	const lilMan = "https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png";
-    const at = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/%28at%29.svg/1200px-%28at%29.svg.png";
-    const lock = "https://www.freeiconspng.com/thumbs/lock-icon/lock-icon-11.png";
+	// const lilMan = "https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png";
+  const at = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/%28at%29.svg/1200px-%28at%29.svg.png";
+  const lock = "https://www.freeiconspng.com/thumbs/lock-icon/lock-icon-11.png";
 
 	return(
 		<section className="signup-form ">

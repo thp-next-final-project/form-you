@@ -1,4 +1,4 @@
-import { userInfo } from 'os';
+// import { userInfo } from 'os';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -18,6 +18,7 @@ export const Profile = () => {
             .then(json => updateUserInfo(json))
 			.then(console.log(userInfos));
         }
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [!userInfos])
 
 	return(
@@ -35,7 +36,7 @@ export const Profile = () => {
 						{userInfos.role}
 					</div>
 					{
-						userInfos.promotions == true
+						(userInfos.promotions === true
 						&&
 						<div>
 							<h2>vos promotions : </h2>
@@ -46,7 +47,7 @@ export const Profile = () => {
 									))
 								}
 							</ul>
-						</div>
+						</div>)
 						||
 						<div>
 							<h2>Nous ne trouvons pas vos promotions</h2>

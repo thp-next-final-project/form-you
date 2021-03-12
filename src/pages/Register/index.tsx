@@ -24,14 +24,14 @@ const Register = () => {
 
 	const handleSubmit = (e:any) => {
 		e.preventDefault();	
-
+		console.log(e.target)
 		const createUser = {
 			user: {
-				firstname: e.target.firstname.value,
-				lastname: e.target.lastname.value,
+				firstname: e.target[0].value,
+				lastname: e.target[1].value,
 				role: e.target.role.value,
-				email: e.target.email.value,
-				password: e.target.password.value,
+				email: e.target[3].value,
+				password: e.target[4].value,
 			}
 		};
 

@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { LOGOUT } from "../../stores/actions";
-import Login from "../../pages/Login/index"
 
 export const NavBar = () => {
     const user:any = useSelector((state) => state);
@@ -17,12 +16,13 @@ export const NavBar = () => {
             <Link className="navItems" to="/">
                 Accueil
             </Link>
-            <Link className="navItems" to="/sessions">
-                Mes sessions
-            </Link>
-            {
-                user.isLogged &&
-                <Link to="/profile">
+            { user.isLogged && 
+                <Link className="navItems" to="/sessions">
+                    Mes sessions
+                </Link>
+                }
+            { user.isLogged && 
+                <Link className="navItems" to="/profile">
                     Mon profil
                 </Link>
             }
