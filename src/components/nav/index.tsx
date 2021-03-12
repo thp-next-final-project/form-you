@@ -13,26 +13,26 @@ export const NavBar = () => {
     return (
     <nav>
         <div className="user-part">
-            <Link to="/">
+            <Link className="navItems" to="/">
                 Accueil
             </Link>
             { user.isLogged && 
-                <Link to="/sessions">
+                <Link className="navItems" to="/sessions">
                     Mes sessions
                 </Link>
                 }
             { user.isLogged && 
-                <Link to="/profile">
+                <Link className="navItems" to="/profile">
                     Mon profil
                 </Link>
             }
         </div>
         { !user.isLogged &&
             <div className="auth-part">
-                <Link to="/login">
+                <Link className="navBtnItems" to="/login">
                     se connecter
                 </Link>
-                <Link to="/signup">
+                <Link className="navBtnItems" to="/signup">
                     s'inscrire
                 </Link>
             </div>

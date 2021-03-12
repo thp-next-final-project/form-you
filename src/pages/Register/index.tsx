@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom';
 import { useFetch } from '../../hooks/useFetch';
 import { LOGIN } from '../../stores/actions';
 import ErrorMessage from '../../components/error_message/index';
+import TextForm from '../textForm/index'
+
 
 const Register = () => {
 	const user:any = useSelector((state) => state);
@@ -22,14 +24,14 @@ const Register = () => {
 
 	const handleSubmit = (e:any) => {
 		e.preventDefault();	
-
+		console.log(e.target)
 		const createUser = {
 			user: {
-				firstname: e.target.firstname.value,
-				lastname: e.target.lastname.value,
+				firstname: e.target[0].value,
+				lastname: e.target[1].value,
 				role: e.target.role.value,
-				email: e.target.email.value,
-				password: e.target.password.value,
+				email: e.target[3].value,
+				password: e.target[4].value,
 			}
 		};
 
@@ -43,27 +45,52 @@ const Register = () => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [data]);	
 
+	const lilMan = "https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png";
+    const at = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/%28at%29.svg/1200px-%28at%29.svg.png";
+    const lock = "https://www.freeiconspng.com/thumbs/lock-icon/lock-icon-11.png";
+
 	return (
-			<section>
-					<h2>Register</h2>
-					<form onSubmit={handleSubmit}>
-						<label >FirstName</label>
-						<input type="text" name="firstname" required/>
-						<label >LastName</label>
-						<input type="text" name="lastname" required/>
-						<label >Choose a role:</label>
-						<select name="role">
+			<section className="signup-form ">
+				<h2>Register</h2>
+				<form onSubmit={handleSubmit}>
+
+				<div className="container">
+					<div className="half">
+						<label className="label-role">Choose a role: </label>
+						<select className="select-role" name="role">
 							<option value="user">User</option>
 							<option value="professor">Professor</option>
 							<option value="admin">Admin</option>
 						</select>
-						<label >Email</label>
-						<input type="email" name="email" required/>
-						<label >Password</label>
-						<input type="password" name="password" required/>
-						<button type="submit">Submit</button>
-					</form>
-					{errors && <ErrorMessage message={errors}/>}
+					</div>
+				</div>
+
+				<div className="container">
+					<div className="half">
+						<TextForm label="Prénom" icon={lilMan}></TextForm>
+					</div>
+					<div className="half">
+						<TextForm label="Nom" icon={lilMan}></TextForm>
+					</div>
+				</div>
+
+				<div className="container">
+					<div className="half">
+						<TextForm className="text-input" label="Email" icon={at}></TextForm>
+					</div>
+				</div>
+
+				<div className="container">
+					<div className="half">
+						<TextForm label="Mot de passe" icon={lock} password></TextForm>
+					</div>
+				</div>
+				<div className="container">
+					<button className="btnSubmit" type="submit">Submit</button>
+				</div>
+
+				</form>
+				{errors && <ErrorMessage message={errors}/>}
 
 			</section>
 	)
