@@ -9,6 +9,7 @@ import Reducer from './stores';
 import { NavBar } from './components/nav/index';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import MySession from './pages/MySessions';
 
 
 const App = (): JSX.Element => {
@@ -28,6 +29,9 @@ const App = (): JSX.Element => {
                   ENSUITE utiliser le hook getParams dans l'enfant.
                   (de preference dans un useEffect)
               */}
+            </Route>
+            <Route>
+                <MySession />
             </Route>
             <Route path="/login" exact>
               < Login />

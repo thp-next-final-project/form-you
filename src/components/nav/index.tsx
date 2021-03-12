@@ -16,12 +16,16 @@ export const NavBar = () => {
             <Link to="/">
                 Accueil
             </Link>
-            <Link to="/sessions">
-                Mes sessions
-            </Link>
-            <Link to="/profile">
-                Mon profil
-            </Link>
+            { user.isLogged && 
+                <Link to="/sessions">
+                    Mes sessions
+                </Link>
+                }
+            { user.isLogged && 
+                <Link to="/profile">
+                    Mon profil
+                </Link>
+            }
         </div>
         { !user.isLogged &&
             <div className="auth-part">
