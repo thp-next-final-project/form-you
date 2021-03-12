@@ -1,5 +1,5 @@
 import React from 'react';
-import Homepage from './components/Homepage/Homepage';
+import Homepage from './components/Homepage/index';
 import { Provider } from 'react-redux';
 import { 
   BrowserRouter as Router,
@@ -9,6 +9,7 @@ import Reducer from './stores';
 import { NavBar } from './components/nav/index';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import { Profile } from './pages/Profile/index';
 
 
 const App = (): JSX.Element => {
@@ -22,12 +23,15 @@ const App = (): JSX.Element => {
             <Route path="/" exact>
               <Homepage/>
             </Route>
-            <Route path="/sessions/:sessionId">
+            <Route path="/sessions">
               {/*
                   pour chopper le slug, il faut passer un enfant a la route et
                   ENSUITE utiliser le hook getParams dans l'enfant.
                   (de preference dans un useEffect)
               */}
+            </Route>
+            <Route path="/profile" exact>
+              <Profile></Profile>
             </Route>
             <Route path="/login" exact>
               < Login />

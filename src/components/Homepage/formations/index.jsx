@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import FormationCard from './FormationCard';
+import FormationCard from './formationCard/index';
 
 const Formations = () => {
     const [formations, setFormations] = useState([]);
@@ -26,17 +26,12 @@ const Formations = () => {
         {formations.map(formation => (        
           <FormationCard
             title={formation.title}
-            id={formation.id}
+            formation_id={formation.id}
             description={formation.description}      
-            key={formation.id}               
           />        
-      ))}
-    </div>
-     
-      
+         ))}
+    </div>   
       );
-      
-
 };
 
 export default Formations;

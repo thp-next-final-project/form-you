@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { LOGOUT } from "../../stores/actions";
+import Login from "../../pages/Login/index"
 
 export const NavBar = () => {
     const user:any = useSelector((state) => state);
@@ -13,22 +14,25 @@ export const NavBar = () => {
     return (
     <nav>
         <div className="user-part">
-            <Link to="/">
+            <Link className="navItems" to="/">
                 Accueil
             </Link>
-            <Link to="/sessions">
+            <Link className="navItems" to="/sessions">
                 Mes sessions
             </Link>
-            <Link to="/profile">
-                Mon profil
-            </Link>
+            {
+                user.isLogged &&
+                <Link to="/profile">
+                    Mon profil
+                </Link>
+            }
         </div>
         { !user.isLogged &&
             <div className="auth-part">
-                <Link to="/login">
+                <Link className="navBtnItems" to="/login">
                     se connecter
                 </Link>
-                <Link to="/signup">
+                <Link className="navBtnItems" to="/signup">
                     s'inscrire
                 </Link>
             </div>

@@ -1,20 +1,18 @@
 import React from "react";
-import Formations from './Formations';
-import Categories from './Categories';
-import Presentation from './Presentation';
+import Formations from './formations/index';
+import Categories from './categories/index';
+import Presentation from './presentation/index';
 import {useSelector } from 'react-redux';
-
-import '../../styles/Homepage.css';
 
 
 function Homepage () {
   const user = useSelector((state) => state);
 
   return (
-    <div>
+    <div className="HomepageGlobal">
       <div><Presentation/></div>
-      <h2>La liste de nos formations</h2>
-      <div className="HomepageGlobal">
+      <h2><center>La liste de nos formations</center></h2>
+      <div className="HomepageTabContent">
         <div className="categoriesMenu">
           <Categories />
         </div>
